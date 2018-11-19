@@ -5,11 +5,33 @@ https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore21
 
 https://github.com/dotnet/core/blob/master/Documentation/self-contained-linux-apps.md
 
+https://opensource.com/article/17/11/net-linux
 
-Steps for running application
-1)navigate to AnagramFinder1\AnagramFinder1\bin\Release\netcoreapp2.1\linux-x64
-2)type AnagramFinder1 dictionary.txt
-3)The application should now come up.
+
+How to install .NET Core on Linux
+The list of Linux distributions on which you can run .NET Core includes Red Hat Enterprise Linux (RHEL), Ubuntu, Debian, Fedora, CentOS, Oracle, and SUSE.
+
+Each distribution has its own installation instructions. For example, consider Fedora 26:
+
+Step 1: Add the dotnet product feed.
+
+        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+        sudo sh -c 'echo -e "[packages-microsoft-com-prod]\nname=packages-microsoft-com-prod \nbaseurl=https://packages.microsoft.com/yumrepos/microsoft-rhel7.3-prod\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/dotnetdev.repo'
+Step 2: Install the .NET Core SDK.
+
+        sudo dnf update
+        sudo dnf install libunwind libicu compat-openssl10
+        sudo dnf install dotnet-sdk-2.0.0
+Creating the Hello World console app
+Now that you have .NET Core installed, you can create the ubiquitous "Hello World" console application before learning more about .NET Core. After all, you're a developer: You want to create and run some code now. Fair enough; this is easy. Create a directory, move into it, create the code, and run it:
+
+mkdir helloworld && cd helloworld
+dotnet new console
+dotnet run
+You’ll see the following output:
+
+$ dotnet run
+Hello World!
 
 
 Other Information
